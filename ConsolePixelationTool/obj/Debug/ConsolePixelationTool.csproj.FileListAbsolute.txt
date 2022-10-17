@@ -1,0 +1,8 @@
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\bin\Debug\ConsolePixelationTool.exe.config
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\bin\Debug\ConsolePixelationTool.exe
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\bin\Debug\ConsolePixelationTool.pdb
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\obj\Debug\ConsolePixelationTool.csproj.AssemblyReference.cache
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\obj\Debug\ConsolePixelationTool.csproj.SuggestedBindingRedirects.cache
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\obj\Debug\ConsolePixelationTool.csproj.CoreCompileInputs.cache
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\obj\Debug\ConsolePixelationTool.exe
+C:\Users\-F1st3k\source\repos\ConsolePixelationTool\ConsolePixelationTool\obj\Debug\ConsolePixelationTool.pdb
