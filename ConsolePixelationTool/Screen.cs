@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -23,7 +24,21 @@ namespace ConsolePixelationTool
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    this.Frame[x, y] = new Pixel(ConsoleColor.Green, PixelSize);
+                    this.Frame[x, y] = new Pixel(ConsoleColor.White, PixelSize);
+                }
+            }
+        }
+        private void ChangePixel(int x, int y, Color color)
+        {
+            this.Frame[x, y].ChangeColor(color);
+        }
+        public void ChangeScreen(Bitmap img)
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                for (int x = 0; x < Width; x++)
+                {
+                    ChangePixel(x, y, img.GetPixel(x, y));
                 }
             }
         }
