@@ -35,90 +35,39 @@ namespace ConsolePixelationTool
         }
         private ConsoleColor ConvertColor(Color color)
         {
-            //вспомогательные цвета для округление красного
-            Color BlackDarkRed = Color.FromArgb(
-               Color.Black.G + (Color.DarkRed.G - Color.Black.G ) / 2,
-               Color.Black.R + (Color.DarkRed.R - Color.Black.R) / 2,
-               Color.Black.B + (Color.DarkRed.B - Color.Black.B) / 2
-               );
-            Color DarkRedRed = Color.FromArgb(
-                Color.DarkRed.R + (Color.Red.R - Color.DarkRed.R) / 2,
-                Color.DarkRed.G + (Color.Red.G - Color.DarkRed.G) / 2,
-                Color.DarkRed.B + (Color.Red.B - Color.DarkRed.B) / 2
-                );
-            Color RedWhite = Color.FromArgb(
-                Color.Red.R + (Color.White.R - Color.Red.R) / 2,
-                Color.Red.G + (Color.White.G - Color.Red.G) / 2,
-                Color.Red.B + (Color.White.B - Color.Red.B) / 2
-                );
-            //вспомогательные цвета для округление зеленого
-            Color BlackDarkGreen = Color.FromArgb(
-               Color.Black.G + (Color.DarkGreen.G - Color.Black.G) / 2,
-               Color.Black.R + (Color.DarkGreen.R - Color.Black.R) / 2,
-               Color.Black.B + (Color.DarkGreen.B - Color.Black.B) / 2
-               );
-            Color DarkGreenGreen = Color.FromArgb(
-                Color.DarkGreen.R + (Color.Green.R - Color.DarkGreen.R) / 2,
-                Color.DarkGreen.G + (Color.Green.G - Color.DarkGreen.G) / 2,
-                Color.DarkGreen.B + (Color.Green.B - Color.DarkGreen.B) / 2
-                );
-            Color GreenWhite = Color.FromArgb(
-                Color.Green.R + (Color.White.R - Color.Green.R) / 2,
-                Color.Green.G + (Color.White.G - Color.Green.G) / 2,
-                Color.Green.B + (Color.White.B - Color.Green.B) / 2
-                );
-            //вспомогательные цвета для округление синего
-            Color BlackDarkBlue = Color.FromArgb(
-               Color.Black.G + (Color.DarkBlue.G - Color.Black.G) / 2,
-               Color.Black.R + (Color.DarkBlue.R - Color.Black.R) / 2,
-               Color.Black.B + (Color.DarkBlue.B - Color.Black.B) / 2
-               );
-            Color DarkBlueBlue = Color.FromArgb(
-                Color.DarkBlue.R + (Color.Blue.R - Color.DarkBlue.R) / 2,
-                Color.DarkBlue.G + (Color.Blue.G - Color.DarkBlue.G) / 2,
-                Color.DarkBlue.B + (Color.Blue.B - Color.DarkBlue.B) / 2
-                );
-            Color BlueWhite = Color.FromArgb(
-                Color.Blue.R + (Color.White.R - Color.Blue.R) / 2,
-                Color.Blue.G + (Color.White.G - Color.Blue.G) / 2,
-                Color.Blue.B + (Color.White.B - Color.Blue.B) / 2
-                );
-            //вспомогательные цвета для окрукления диапозона в 4 отенка ЧБ:
-            Color BlackDarkGray = Color.FromArgb(
-                Color.Black.R + (Color.DarkGray.R - Color.Black.R) / 2,
-                Color.Black.G + (Color.DarkGray.G - Color.Black.G) / 2,
-                Color.Black.B + (Color.DarkGray.B - Color.Black.B) / 2
-                );
-            Color DarkGrayGray = Color.FromArgb(
-                Color.DarkGray.R + (Color.Gray.R - Color.DarkGray.R) / 2,
-                Color.DarkGray.G + (Color.Gray.G - Color.DarkGray.G) / 2,
-                Color.DarkGray.B + (Color.Gray.B - Color.DarkGray.B) / 2
-                );
-            Color GrayWhite = Color.FromArgb(
-                Color.Gray.R + (Color.White.R - Color.Gray.R) / 2,
-                Color.Gray.G + (Color.White.G - Color.Gray.G) / 2,
-                Color.Gray.B + (Color.White.B - Color.Gray.B) / 2
-                );
-            Color White = Color.FromArgb(255, 255, 255);
-            ////Округление оттенков в красного
-            //if (ColorIsRange(color, Color.Black, BlackDarkRed))
-            //    return ConsoleColor.Black;
-            //if (ColorIsRange(color, BlackDarkRed, DarkRedRed))
-            //    return ConsoleColor.DarkGray;
-            //if (ColorIsRange(color, DarkRedRed, RedWhite))
-            //    return ConsoleColor.Gray;
-            //if (ColorIsRange(color, GrayWhite, White))
-            //    return ConsoleColor.White;
-            //Округление оттенков в чб            
-            if (ColorIsRange(color, Color.Black, BlackDarkGray))
+            if (ColorIsRange(color, Color.Black, Color.FromArgb(64, 64, 64)))
                 return ConsoleColor.Black;
-            if (ColorIsRange(color, BlackDarkGray, DarkGrayGray))
+            if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(192, 64, 64)))
+                return ConsoleColor.DarkRed;
+            if (ColorIsRange(color, Color.FromArgb(192, 64, 64), Color.FromArgb(255, 160, 160)))
+                return ConsoleColor.Red;
+            if (ColorIsRange(color, Color.FromArgb(0, 64,  0), Color.FromArgb(64, 192, 64)))
+                return ConsoleColor.DarkGreen;
+            if (ColorIsRange(color, Color.FromArgb(64, 192, 64), Color.FromArgb(160, 255, 160)))
+                return ConsoleColor.Green;
+            if (ColorIsRange(color, Color.FromArgb(0, 0, 64), Color.FromArgb(64, 64, 192)))
+                return ConsoleColor.DarkBlue;
+            if (ColorIsRange(color, Color.FromArgb(64, 64, 192), Color.FromArgb(160, 160, 255)))
+                return ConsoleColor.Blue;
+            if (ColorIsRange(color, Color.FromArgb(64, 0, 64), Color.FromArgb(192, 64, 192)))
+                return ConsoleColor.DarkMagenta;
+            if (ColorIsRange(color, Color.FromArgb(192, 64, 192), Color.FromArgb(255, 160, 255)))
+                return ConsoleColor.Magenta;
+            if (ColorIsRange(color, Color.FromArgb(64, 64, 0), Color.FromArgb(192, 192, 64)))
+                return ConsoleColor.DarkYellow;
+            if (ColorIsRange(color, Color.FromArgb(192, 192, 64), Color.FromArgb(255, 255, 160)))
+                return ConsoleColor.Yellow;
+            if (ColorIsRange(color, Color.FromArgb(0, 64, 64), Color.FromArgb(64, 192, 192)))
+                return ConsoleColor.DarkCyan;
+            if (ColorIsRange(color, Color.FromArgb(64, 192, 192), Color.FromArgb(160, 255, 255)))
+                return ConsoleColor.Cyan;
+            if (ColorIsRange(color, Color.FromArgb(64, 64, 64), Color.FromArgb(128, 128, 128)))
                 return ConsoleColor.DarkGray;
-            if (ColorIsRange(color, DarkGrayGray, GrayWhite))
+            if (ColorIsRange(color, Color.FromArgb(128, 128, 128), Color.FromArgb(192, 192, 192)))
                 return ConsoleColor.Gray;
-            if (ColorIsRange(color, GrayWhite, White))
+            if (ColorIsRange(color, Color.FromArgb(192, 192, 192), Color.White))
                 return ConsoleColor.White;
-            if (color == White)
+            if (color == Color.FromArgb(255, 255, 255))
                 return ConsoleColor.White;
             return ConsoleColor.Red;
         }

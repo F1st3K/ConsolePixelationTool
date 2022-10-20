@@ -13,7 +13,7 @@ namespace ConsolePixelationTool
     {
         static void Main(string[] args)
         {
-            string file = "cotic.png";
+            string file = "cotic3.png";
             System.IO.FileStream fs = new System.IO.FileStream(file, System.IO.FileMode.Open);
             System.Drawing.Image png = System.Drawing.Image.FromStream(fs);
             fs.Close();
@@ -21,6 +21,7 @@ namespace ConsolePixelationTool
             Screen screen = new Screen(img.Height, img.Width, 2);
             screen.ChangeScreen(img);
             screen.DrawScreen(0, 0);
+            //screen.RGBTest();
             Console.ResetColor();
         }
     }
