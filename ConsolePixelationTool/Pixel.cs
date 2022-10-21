@@ -35,41 +35,74 @@ namespace ConsolePixelationTool
         }
         private ConsoleColor ConvertColor(Color color)
         {
-            if (ColorIsRange(color, Color.Black, Color.FromArgb(64, 64, 64)))
-                return ConsoleColor.Black;
-            if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(192, 64, 64)))
-                return ConsoleColor.DarkRed;
-            if (ColorIsRange(color, Color.FromArgb(192, 64, 64), Color.FromArgb(255, 160, 160)))
+
+            if (ColorIsRange(color, Color.FromArgb(128, 0, 0), Color.FromArgb(255, 128, 128)))
                 return ConsoleColor.Red;
-            if (ColorIsRange(color, Color.FromArgb(0, 64,  0), Color.FromArgb(64, 192, 64)))
-                return ConsoleColor.DarkGreen;
-            if (ColorIsRange(color, Color.FromArgb(64, 192, 64), Color.FromArgb(160, 255, 160)))
+            if (color == Color.FromArgb(255, 0, 0))
+                return ConsoleColor.Red;
+
+            if (ColorIsRange(color, Color.FromArgb(0, 128, 0), Color.FromArgb(128, 255, 128)))
                 return ConsoleColor.Green;
-            if (ColorIsRange(color, Color.FromArgb(0, 0, 64), Color.FromArgb(64, 64, 192)))
-                return ConsoleColor.DarkBlue;
-            if (ColorIsRange(color, Color.FromArgb(64, 64, 192), Color.FromArgb(160, 160, 255)))
+            if (color == Color.FromArgb(0, 255, 0))
+                return ConsoleColor.Green;
+
+            if (ColorIsRange(color, Color.FromArgb(0, 0, 128), Color.FromArgb(128, 128, 255)))
                 return ConsoleColor.Blue;
-            if (ColorIsRange(color, Color.FromArgb(64, 0, 64), Color.FromArgb(192, 64, 192)))
-                return ConsoleColor.DarkMagenta;
-            if (ColorIsRange(color, Color.FromArgb(192, 64, 192), Color.FromArgb(255, 160, 255)))
-                return ConsoleColor.Magenta;
-            if (ColorIsRange(color, Color.FromArgb(64, 64, 0), Color.FromArgb(192, 192, 64)))
-                return ConsoleColor.DarkYellow;
-            if (ColorIsRange(color, Color.FromArgb(192, 192, 64), Color.FromArgb(255, 255, 160)))
+            if (color == Color.FromArgb(0, 0, 255))
+                return ConsoleColor.Blue;
+
+
+            if (ColorIsRange(color, Color.FromArgb(128, 128, 0), Color.FromArgb(255, 255, 128)))
                 return ConsoleColor.Yellow;
-            if (ColorIsRange(color, Color.FromArgb(0, 64, 64), Color.FromArgb(64, 192, 192)))
-                return ConsoleColor.DarkCyan;
-            if (ColorIsRange(color, Color.FromArgb(64, 192, 192), Color.FromArgb(160, 255, 255)))
+            if (color == Color.FromArgb(255, 255, 0))
+                return ConsoleColor.Yellow;
+
+            if (ColorIsRange(color, Color.FromArgb(0, 128, 128), Color.FromArgb(128, 255, 255)))
                 return ConsoleColor.Cyan;
-            if (ColorIsRange(color, Color.FromArgb(64, 64, 64), Color.FromArgb(128, 128, 128)))
-                return ConsoleColor.DarkGray;
-            if (ColorIsRange(color, Color.FromArgb(128, 128, 128), Color.FromArgb(192, 192, 192)))
-                return ConsoleColor.Gray;
-            if (ColorIsRange(color, Color.FromArgb(192, 192, 192), Color.White))
+            if (color == Color.FromArgb(0, 255, 255))
+                return ConsoleColor.Cyan;
+
+            if (ColorIsRange(color, Color.FromArgb(128, 0, 128), Color.FromArgb(255, 128, 255)))
+                return ConsoleColor.Magenta;
+            if (color == Color.FromArgb(255, 0, 255))
+                return ConsoleColor.Magenta;
+
+            if (ColorIsRange(color, Color.Black, Color.FromArgb(128, 128, 128)))
+                return ConsoleColor.Black;
+            if (ColorIsRange(color, Color.FromArgb(128, 128, 128), Color.White))
                 return ConsoleColor.White;
             if (color == Color.FromArgb(255, 255, 255))
                 return ConsoleColor.White;
-            return ConsoleColor.Red;
+
+
+
+            //if (ColorIsRange(color, Color.FromArgb(64, 0, 64), Color.FromArgb(192, 64, 192)))
+            //    return ConsoleColor.DarkMagenta;
+            //if (ColorIsRange(color, Color.FromArgb(192, 64, 192), Color.FromArgb(255, 160, 255)))
+            //    return ConsoleColor.Magenta;
+            //if (ColorIsRange(color, Color.FromArgb(64, 64, 0), Color.FromArgb(192, 192, 64)))
+            //    return ConsoleColor.DarkYellow;
+            //if (ColorIsRange(color, Color.FromArgb(192, 192, 0), Color.FromArgb(255, 255, 160)))
+            //    return ConsoleColor.Yellow;
+            //if (ColorIsRange(color, Color.FromArgb(0, 64, 64), Color.FromArgb(64, 192, 192)))
+            //    return ConsoleColor.DarkCyan;
+            //if (ColorIsRange(color, Color.FromArgb(64, 192, 192), Color.FromArgb(160, 255, 255)))
+            //    return ConsoleColor.Cyan;
+
+            //if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(192, 64, 64)))
+            //    return ConsoleColor.DarkRed;
+            //if (ColorIsRange(color, Color.FromArgb(192, 64, 64), Color.FromArgb(255, 160, 160)))
+            //    return ConsoleColor.Red;
+            //if (ColorIsRange(color, Color.FromArgb(0, 64, 0), Color.FromArgb(64, 192, 64)))
+            //    return ConsoleColor.DarkGreen;
+            //if (ColorIsRange(color, Color.FromArgb(64, 192, 64), Color.FromArgb(160, 255, 160)))
+            //    return ConsoleColor.Green;
+            //if (ColorIsRange(color, Color.FromArgb(0, 0, 64), Color.FromArgb(64, 64, 192)))
+            //    return ConsoleColor.DarkBlue;
+            //if (ColorIsRange(color, Color.FromArgb(64, 64, 192), Color.FromArgb(160, 160, 255)))
+            //    return ConsoleColor.Blue;
+
+            return ConsoleColor.Black;
         }
         private bool ColorIsRange(Color InitionalColor, Color MinColor, Color MaxColor)
         {
