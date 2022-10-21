@@ -36,8 +36,13 @@ namespace ConsolePixelationTool
         private ConsoleColor ConvertColor(Color color)
         {
 
-            if (ColorIsRange(color, Color.FromArgb(128, 0, 0), Color.FromArgb(255, 128, 128)))
+            if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(255, 128, 128)))
+            {
+                if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(128, 64, 64)))
+                    return ConsoleColor.DarkRed;
                 return ConsoleColor.Red;
+            }
+            
             if (color == Color.FromArgb(255, 0, 0))
                 return ConsoleColor.Red;
 
