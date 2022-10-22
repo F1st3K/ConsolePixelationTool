@@ -36,13 +36,10 @@ namespace ConsolePixelationTool
         private ConsoleColor ConvertColor(Color color)
         {
 
-            if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(255, 128, 128)))
+            if (ColorIsRange(color, Color.FromArgb(128, 0, 0), Color.FromArgb(255, 128, 128)))
             {
-                if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(128, 64, 64)))
-                    return ConsoleColor.DarkRed;
                 return ConsoleColor.Red;
             }
-            
             if (color == Color.FromArgb(255, 0, 0))
                 return ConsoleColor.Red;
 
@@ -73,9 +70,27 @@ namespace ConsolePixelationTool
                 return ConsoleColor.Magenta;
 
             if (ColorIsRange(color, Color.Black, Color.FromArgb(128, 128, 128)))
+            {
+                if (ColorIsRange(color, Color.FromArgb(64, 64, 64), Color.FromArgb(128, 128, 128)))
+                    return ConsoleColor.Gray;
+                if (ColorIsRange(color, Color.FromArgb(64, 0, 0), Color.FromArgb(128, 64, 64)))
+                    return ConsoleColor.DarkRed;
+                if (ColorIsRange(color, Color.FromArgb(0, 64, 0), Color.FromArgb(64, 128, 64)))
+                    return ConsoleColor.DarkGreen;
+                if (ColorIsRange(color, Color.FromArgb(0, 0, 64), Color.FromArgb(64, 64, 128)))
+                    return ConsoleColor.DarkBlue;
+                if (ColorIsRange(color, Color.FromArgb(64, 64, 0), Color.FromArgb(128, 128, 64)))
+                    return ConsoleColor.DarkYellow;
+                if (ColorIsRange(color, Color.FromArgb(0, 64, 64), Color.FromArgb(64, 128, 128)))
+                    return ConsoleColor.DarkCyan;
+                if (ColorIsRange(color, Color.FromArgb(64, 0, 64), Color.FromArgb(128, 64, 128)))
+                    return ConsoleColor.DarkMagenta;
                 return ConsoleColor.Black;
+            }
             if (ColorIsRange(color, Color.FromArgb(128, 128, 128), Color.White))
-                return ConsoleColor.White;
+                if (ColorIsRange(color, Color.FromArgb(128, 128, 128), Color.FromArgb(192, 192, 192)))
+                    return ConsoleColor.DarkGray;
+            return ConsoleColor.White;
             if (color == Color.FromArgb(255, 255, 255))
                 return ConsoleColor.White;
 
