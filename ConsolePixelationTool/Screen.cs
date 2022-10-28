@@ -83,7 +83,7 @@ namespace ConsolePixelationTool
         }
         private void ChangePixel(int x, int y, Color color)
         {
-            this.Frame[x, y].ChangeColor(color);
+            this.Frame[x, y].PixelColor = new ColorConverter().ConvertToConsoleColor(color);
         }
         public void ChangeScreen(Bitmap img)
         {

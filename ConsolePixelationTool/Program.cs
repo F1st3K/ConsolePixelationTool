@@ -13,7 +13,7 @@ namespace ConsolePixelationTool
     {
         static void Main(string[] args)
         {
-            string file = "gamma.jpg";
+            string file = "man.png";
             System.IO.FileStream fs = new System.IO.FileStream(file, System.IO.FileMode.Open);
             System.Drawing.Image png = System.Drawing.Image.FromStream(fs);
             fs.Close();
