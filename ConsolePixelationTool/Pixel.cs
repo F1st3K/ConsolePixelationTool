@@ -13,17 +13,23 @@ namespace ConsolePixelationTool
     {
         private int PixelSizeX;
         public ConsoleColor PixelColor { private get; set; }
+        public char ConsoleSymbol { private get; set; }
         public Pixel(ConsoleColor Color, int pixelSize)
         {
             this.PixelColor = Color;
             this.PixelSizeX = pixelSize;
+            this.ConsoleSymbol = '█';
+        }
+        public void DrawColor()
+        {
+
+            Console.ForegroundColor = this.PixelColor;
         }
         public void DrawPixel(int posX, int posY)
         {
-            Console.ForegroundColor = this.PixelColor;
             Console.SetCursorPosition(posX, posY);
             for(int i = 0; i < PixelSizeX; i++)
-                Console.Write("█");
+                Console.Write(ConsoleSymbol);
         }
     }
 }

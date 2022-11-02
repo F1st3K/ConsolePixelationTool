@@ -9,6 +9,11 @@ namespace ConsolePixelationTool
 {
     internal class ColorConverter
     {
+        const char BLACK = ' ';
+        const char BLACK_GRAY = '░';
+        const char GRAY = '▒';
+        const char WHITE_GRAY = '▓';
+        const char WHITE = '█';
         public ConsoleColor ConvertToConsoleColor(Color color)
         {
 
@@ -56,6 +61,35 @@ namespace ConsolePixelationTool
                 return ConsoleColor.White;
             }
             return ConsoleColor.Black;
+        }
+        public char ConvertToConsoleSymbol(Color color)
+        {
+            if (ColorIsInRange(color, Color.Black, Color.FromArgb(128, 128, 128)))
+            {
+                if (ColorIsInRange(color, Color.Black, Color.FromArgb(32, 32, 32)))
+                {
+                    return BLACK;
+                }
+                if (ColorIsInRange(color, Color.Black, Color.FromArgb(96, 96, 96)))
+                {
+                    return BLACK_GRAY;
+                }
+                return GRAY;
+            }
+            
+            if (ColorIsInRange(color, Color.FromArgb(224, 224, 224), Color.White))
+            {
+                if (ColorIsInRange(color, Color.FromArgb(224, 224, 224), Color.White))
+                {
+                    return WHITE;
+                }
+                if (ColorIsInRange(color, Color.FromArgb(160, 160, 160), Color.White))
+                {
+                    return WHITE_GRAY;
+                }
+                return GRAY;
+            }
+            return ' ';
         }
         private bool ColorIsInRange(Color InitionalColor, Color MinColor, Color MaxColor)
         {
