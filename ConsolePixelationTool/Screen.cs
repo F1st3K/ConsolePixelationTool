@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsolePixelationTool
 {
-     internal abstract class Screen
+    internal class Screen
     {
         public int Height { get; private set; }
         public int Width {get; private set;}
@@ -29,35 +29,28 @@ namespace ConsolePixelationTool
                 }
             }
         }
-        public abstract void ChangeScreen(Bitmap img);
-        public abstract void DrawScreen(int posX, int posY);
-        //{
-        //    for (int y = 0; y < Height; y++)
-        //    {
-        //        for (int x = 0; x < Width; x++)
-        //        {
-        //            this.Frame[x, y].DrawColor();
-        //            this.Frame[x, y].DrawPixel(posX+x*PixelSizeX, posY+y);
-        //        }
-        //    }
-        //}
-    }
-
-    internal class ColorScreen : Screen
-    {
-        public override void ChangeScreen(Bitmap img)
+        public virtual void ChangeScreen(Bitmap img)
         {
             for (int y = 0; y < Height; y++)
             {
                 for (int x = 0; x < Width; x++)
                 {
                     this.Frame[x, y].PixelColor = new ColorConverter().ConvertToConsoleColor(img.GetPixel(x, y));
+                    this.Frame[x, y].PixelSymbol = new ColorConverter().ConvertToConsoleSymbol(img.GetPixel(x, y));
                 }
             }
         }
-        public override void DrawScreen(int posX, int posY)
+        public virtual void DrawScreen(int posX, int posY)
         {
-            throw new NotImplementedException();
+            for (int y = 0; y < Height; y++)
+            {
+                for (int x = 0; x < Width; x++)
+                {
+                    this.Frame[x, y].SetColor();
+                    this.Frame[x, y].DrawPixel(posX + x * PixelSizeX, posY + y);
+                    this.Frame[x, y].ResetColor();
+                }
+            }
         }
     }
 }

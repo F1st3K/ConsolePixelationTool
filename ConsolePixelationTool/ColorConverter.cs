@@ -64,32 +64,21 @@ namespace ConsolePixelationTool
         }
         public char ConvertToConsoleSymbol(Color color)
         {
-            if (ColorIsInRange(color, Color.Black, Color.FromArgb(128, 128, 128)))
-            {
-                if (ColorIsInRange(color, Color.Black, Color.FromArgb(32, 32, 32)))
-                {
-                    return BLACK;
-                }
-                if (ColorIsInRange(color, Color.Black, Color.FromArgb(96, 96, 96)))
-                {
-                    return BLACK_GRAY;
-                }
+            if (color.GetBrightness() >= 0.0 && color.GetBrightness() < 0.2)
+                return BLACK;
+
+            if (color.GetBrightness() >= 0.2 && color.GetBrightness() < 0.4)
+                return BLACK_GRAY;
+
+            if (color.GetBrightness() >= 0.4 && color.GetBrightness() < 0.6)
                 return GRAY;
-            }
-            
-            if (ColorIsInRange(color, Color.FromArgb(224, 224, 224), Color.White))
-            {
-                if (ColorIsInRange(color, Color.FromArgb(224, 224, 224), Color.White))
-                {
-                    return WHITE;
-                }
-                if (ColorIsInRange(color, Color.FromArgb(160, 160, 160), Color.White))
-                {
-                    return WHITE_GRAY;
-                }
-                return GRAY;
-            }
-            return ' ';
+
+            if (color.GetBrightness() >= 0.6 && color.GetBrightness() < 0.8)
+                return WHITE_GRAY;
+
+            if (color.GetBrightness() >= 0.8 && color.GetBrightness() <= 1.0)
+                return WHITE;
+            return BLACK;
         }
         private bool ColorIsInRange(Color InitionalColor, Color MinColor, Color MaxColor)
         {

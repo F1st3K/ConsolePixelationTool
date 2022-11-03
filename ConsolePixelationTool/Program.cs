@@ -13,12 +13,12 @@ namespace ConsolePixelationTool
     {
         static void Main(string[] args)
         {
-            string file = "man.png";
+            string file = "ivanovX.jpg";
             System.IO.FileStream fs = new System.IO.FileStream(file, System.IO.FileMode.Open);
             System.Drawing.Image png = System.Drawing.Image.FromStream(fs);
             fs.Close();
             Bitmap img = new Bitmap(png);
-            Screen screen = new Screen(img.Height, img.Width, 2);
+            Screen screen = new SymbolScreen(img.Height, img.Width, 2);
             screen.ChangeScreen(img);
             screen.DrawScreen(0, 0);
             //screen.RGBTest();
