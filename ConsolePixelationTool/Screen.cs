@@ -29,7 +29,7 @@ namespace ConsolePixelationTool
                 }
             }
         }
-        public virtual void ChangeScreen(Bitmap img)
+        public void ChangeScreen(Bitmap img)
         {
             for (int y = 0; y < Height; y++)
             {
@@ -40,17 +40,45 @@ namespace ConsolePixelationTool
                 }
             }
         }
-        public virtual void DrawScreen(int posX, int posY)
+        public void SymbolOutput()
         {
-            for (int y = 0; y < Height; y++)
+            for (int y = 0; y < Frame.GetLength(1); y++)
             {
-                for (int x = 0; x < Width; x++)
+                for (int x = 0; x < Frame.GetLength(2); x++)
                 {
-                    this.Frame[x, y].SetColor();
-                    this.Frame[x, y].DrawPixel(posX + x * PixelSizeX, posY + y);
-                    this.Frame[x, y].ResetColor();
+                    Console.SetCursorPosition(x, y);
+                    for (int i = 0; i < PixelSizeX; i++)
+                        Console.Write(Frame[x, y].PixelSymbol);
                 }
             }
+        }
+        public void ColorOutput()
+        {
+            for (int y = 0; y < Frame.GetLength(1); y++)
+            {
+                for (int x = 0; x < Frame.GetLength(2); x++)
+                {
+                    Console.ForegroundColor = Frame[x, y].PixelColor;
+                    Console.SetCursorPosition(x, y);
+                    for (int i = 0; i < PixelSizeX; i++)
+                        Console.Write(Pixel.BlockSymbol);
+                }
+            }
+            Console.ResetColor();
+        }
+        public void SymbolColorOutput()
+        {
+            for (int y = 0; y < Frame.GetLength(1); y++)
+            {
+                for (int x = 0; x < Frame.GetLength(2); x++)
+                {
+                    Console.ForegroundColor = Frame[x, y].PixelColor;
+                    Console.SetCursorPosition(x, y);
+                    for (int i = 0; i < PixelSizeX; i++)
+                        Console.Write(Frame[x, y].PixelSymbol);
+                }
+            }
+            Console.ResetColor();
         }
     }
 }
