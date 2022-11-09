@@ -40,40 +40,40 @@ namespace ConsolePixelationTool
                 }
             }
         }
-        public void SymbolOutput()
+        public void SymbolOutput(int startX, int startY)
         {
             for (int y = 0; y < Frame.GetLength(1); y++)
             {
-                for (int x = 0; x < Frame.GetLength(2); x++)
+                for (int x = 0; x < Frame.GetLength(0); x++)
                 {
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition((x + startX) * PixelSizeX, y + startY);
                     for (int i = 0; i < PixelSizeX; i++)
                         Console.Write(Frame[x, y].PixelSymbol);
                 }
             }
         }
-        public void ColorOutput()
+        public void ColorOutput(int startX, int startY)
         {
             for (int y = 0; y < Frame.GetLength(1); y++)
             {
-                for (int x = 0; x < Frame.GetLength(2); x++)
+                for (int x = 0; x < Frame.GetLength(0); x++)
                 {
                     Console.ForegroundColor = Frame[x, y].PixelColor;
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition((x + startX) * PixelSizeX, y + startY);
                     for (int i = 0; i < PixelSizeX; i++)
                         Console.Write(Pixel.BlockSymbol);
                 }
             }
             Console.ResetColor();
         }
-        public void SymbolColorOutput()
+        public void SymbolColorOutput(int startX, int startY)
         {
             for (int y = 0; y < Frame.GetLength(1); y++)
             {
-                for (int x = 0; x < Frame.GetLength(2); x++)
+                for (int x = 0; x < Frame.GetLength(0); x++)
                 {
                     Console.ForegroundColor = Frame[x, y].PixelColor;
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition((x + startX) * PixelSizeX, y + startY);
                     for (int i = 0; i < PixelSizeX; i++)
                         Console.Write(Frame[x, y].PixelSymbol);
                 }

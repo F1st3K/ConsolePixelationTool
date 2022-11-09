@@ -9,10 +9,21 @@ namespace ConsolePixelationTool
 {
     internal class ColorConverter
     {
-        const char BLACK = ' ';
-        const char BLACK_GRAY = '░';
-        const char GRAY = '▒';
-        const char WHITE_GRAY = '▓';
+        const char BLACK = ' ';             
+        const char GRAPHITE_BLACK = '▚';    
+        const char SIGNAL_BLACK = '▂';
+        const char GRAY_BROWN = '▏';
+        const char WETASPHALT_GRAY = '▃';
+        const char DIM_GRAY = '▎';
+        const char DULL_GRAY = '▄';
+        const char GRAY = '▍';
+        const char PEARLDARK_GRAY = '▅';
+        const char PEARLLIGHT_GRAY = '▋';
+        const char WHITE_ALUMINUM = '▆';
+        const char LIGHT_GRAY = '▊';
+        const char LIGHT_TELEGRAY = '▇';
+        const char BRIGHT_GRAY = '▉';
+        const char GAINSBOROUGH_GRAY = '▓';
         const char WHITE = '█';
         public ConsoleColor ConvertToConsoleColor(Color color)
         {
@@ -64,19 +75,40 @@ namespace ConsolePixelationTool
         }
         public char ConvertToConsoleSymbol(Color color)
         {
-            if (color.GetBrightness() >= 0.0 && color.GetBrightness() < 0.2)
+            if (color.GetBrightness() >= 0.0 && color.GetBrightness() < 0.0625)
                 return BLACK;
+            if (color.GetBrightness() >= 0.0625 && color.GetBrightness() < 0.125)
+                return GRAPHITE_BLACK;
+            if (color.GetBrightness() >= 0.125 && color.GetBrightness() < 0.1875)
+                return SIGNAL_BLACK;
+            if (color.GetBrightness() >= 0.1875 && color.GetBrightness() < 0.25)
+                return GRAY_BROWN;
 
-            if (color.GetBrightness() >= 0.2 && color.GetBrightness() < 0.4)
-                return BLACK_GRAY;
-
-            if (color.GetBrightness() >= 0.4 && color.GetBrightness() < 0.6)
+            if (color.GetBrightness() >= 0.25 && color.GetBrightness() <= 0.3125)
+                return WETASPHALT_GRAY;
+            if (color.GetBrightness() >= 0.3125 && color.GetBrightness() <= 0.375)
+                return DIM_GRAY;
+            if (color.GetBrightness() >= 0.375 && color.GetBrightness() <= 0.4375)
+                return DULL_GRAY;
+            if (color.GetBrightness() >= 0.4375 && color.GetBrightness() <= 0.5)
                 return GRAY;
 
-            if (color.GetBrightness() >= 0.6 && color.GetBrightness() < 0.8)
-                return WHITE_GRAY;
+            if (color.GetBrightness() >= 0.5 && color.GetBrightness() <= 0.5625)
+                return PEARLDARK_GRAY;
+            if (color.GetBrightness() >= 0.5625 && color.GetBrightness() <= 0.625)
+                return PEARLLIGHT_GRAY;
+            if (color.GetBrightness() >= 0.625 && color.GetBrightness() <= 0.6875)
+                return WHITE_ALUMINUM;
+            if (color.GetBrightness() >= 0.6875 && color.GetBrightness() <= 0.75)
+                return LIGHT_GRAY;
 
-            if (color.GetBrightness() >= 0.8 && color.GetBrightness() <= 1.0)
+            if (color.GetBrightness() >= 0.75 && color.GetBrightness() <= 0.8125)
+                return LIGHT_TELEGRAY;
+            if (color.GetBrightness() >= 0.8125 && color.GetBrightness() <= 0.875)
+                return BRIGHT_GRAY;
+            if (color.GetBrightness() >= 0.875 && color.GetBrightness() <= 0.9375)
+                return GAINSBOROUGH_GRAY;
+            if (color.GetBrightness() >= 0.9375 && color.GetBrightness() <= 1.0)
                 return WHITE;
             return BLACK;
         }
