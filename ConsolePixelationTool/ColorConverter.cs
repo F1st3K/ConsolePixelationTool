@@ -9,22 +9,22 @@ namespace ConsolePixelationTool
 {
     internal class ColorConverter
     {
-        const char BLACK = ' ';             
-        const char GRAPHITE_BLACK = '▚';    
-        const char SIGNAL_BLACK = '▂';
-        const char GRAY_BROWN = '▏';
-        const char WETASPHALT_GRAY = '▃';
-        const char DIM_GRAY = '▎';
-        const char DULL_GRAY = '▄';
-        const char GRAY = '▍';
-        const char PEARLDARK_GRAY = '▅';
-        const char PEARLLIGHT_GRAY = '▋';
-        const char WHITE_ALUMINUM = '▆';
-        const char LIGHT_GRAY = '▊';
-        const char LIGHT_TELEGRAY = '▇';
-        const char BRIGHT_GRAY = '▉';
-        const char GAINSBOROUGH_GRAY = '▓';
-        const char WHITE = '█';
+        const char BLACK = '.';             
+        const char GRAPHITE_BLACK = ':';    
+        const char SIGNAL_BLACK = '!';
+        const char GRAY_BROWN = '/';
+        const char WETASPHALT_GRAY = 'r';
+        const char DIM_GRAY = '(';
+        const char DULL_GRAY = 'l';
+        const char GRAY = '1';
+        const char PEARLDARK_GRAY = 'Z';
+        const char PEARLLIGHT_GRAY = '4';
+        const char WHITE_ALUMINUM = 'H';
+        const char LIGHT_GRAY = '9';
+        const char LIGHT_TELEGRAY = 'W';
+        const char BRIGHT_GRAY = '8';
+        const char GAINSBOROUGH_GRAY = '$';
+        const char WHITE = '@';
         public ConsoleColor ConvertToConsoleColor(Color color)
         {
 

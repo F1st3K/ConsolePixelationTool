@@ -42,15 +42,16 @@ namespace ConsolePixelationTool
         }
         public void SymbolOutput(int startX, int startY)
         {
+            Console.SetCursorPosition(startX * PixelSizeX, startY);
             for (int y = 0; y < Frame.GetLength(1); y++)
             {
                 for (int x = 0; x < Frame.GetLength(0); x++)
                 {
-                    Console.SetCursorPosition((x + startX) * PixelSizeX, y + startY);
                     for (int i = 0; i < PixelSizeX; i++)
                         Console.Write(Frame[x, y].PixelSymbol);
                 }
-            }
+                Console.WriteLine();
+            };
         }
         public void ColorOutput(int startX, int startY)
         {
