@@ -29,8 +29,10 @@ namespace ConsolePixelationTool
                 }
             }
         }
-        public void ChangeScreen(Bitmap img)
+        public void ChangeScreen(Bitmap img, Size resolution)
         {
+            img = new Bitmap(img, resolution);
+            
             for (int y = 0; y < Height; y++)
             {
                 for (int x = 0; x < Width; x++)

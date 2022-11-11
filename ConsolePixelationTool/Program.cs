@@ -13,13 +13,10 @@ namespace ConsolePixelationTool
     {
         static void Main(string[] args)
         {
-            string file = "ivanov.jpg";
-            System.IO.FileStream fs = new System.IO.FileStream(file, System.IO.FileMode.Open);
-            System.Drawing.Image png = System.Drawing.Image.FromStream(fs);
-            fs.Close();
-            Bitmap img = new Bitmap(png);
+            string file = "gamma.png";
+            Bitmap img = new Bitmap(file);
             Screen screen = new Screen(img.Height, img.Width, 2);
-            screen.ChangeScreen(img);
+            screen.ChangeScreen(img, new Size(500, 500));
             screen.SymbolOutput(0 , 0);
             //screen.RGBTest();
             Console.ResetColor();
